@@ -2,13 +2,13 @@ version: 0.0
 os: linux
 files:
   - source: /    # Source directory in the deployment package
-    destination: /var/www/html/  # Destination directory on the EC2 instance
+    destination: /tmp/  # Temporary destination directory on the EC2 instance for unzipping
 hooks:
   BeforeInstall:
     - location: scripts/before_install.sh
       timeout: 300
       runas: root
   AfterInstall:
-    - location: scripts/after_install.sh
+    - location: scripts/unzip_and_deploy.sh  # Run the script to unzip and deploy to Nginx
       timeout: 300
       runas: root
