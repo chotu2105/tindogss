@@ -1,8 +1,8 @@
 version: 0.0
 os: linux
 files:
-  - source: /    # Source directory in the deployment package
-    destination: /tmp/  # Temporary destination directory on the EC2 instance for unzipping
+  - source: /my-deployment-bucket11
+    destination: /tmp/ 
 hooks:
   BeforeInstall:
     - location: scripts/before_install.sh
